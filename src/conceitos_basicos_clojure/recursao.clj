@@ -17,3 +17,14 @@
 (def list-int [1, 2, 3, 4, 5])
 (def dobra-valor #(println (* %1 2)))
 (example-map dobra-valor list-int)
+
+; Exemplo de implementação do "count"
+; Aplicando conceitos de polimorfismo
+(defn example-count
+  ([sequence] (example-count 0 sequence))
+  ([total-currently sequence]
+   (if (seq sequence)
+     (recur (inc total-currently) (next sequence))
+     total-currently)))
+
+(println (example-count ["Emanuel", "Yohanna", "Raje", "Frida"]))
